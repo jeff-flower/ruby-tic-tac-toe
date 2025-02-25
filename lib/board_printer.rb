@@ -11,7 +11,7 @@ class BoardPrinter
       # print hyphens when not first or last row
       output << "#{row_divider}\n" unless row_number.zero?
       output << row_string(row)
-      output << "\n" unless row_number == @board.num_rows - 1
+      output << "\n" unless row_number == @board.size - 1
     end
 
     output
@@ -22,7 +22,7 @@ class BoardPrinter
   def row_divider
     divider = ''
 
-    hyphen_count = (@board.num_columns * 3) + (@board.num_columns - 1)
+    hyphen_count = (@board.size * 3) + (@board.size - 1)
     hyphen_count.times { |_| divider << '-' }
 
     divider

@@ -5,16 +5,16 @@ describe BoardPrinter do
   describe '#print' do
     context 'when the board is empty' do
       it 'prints a 1 row game board' do
-        board = Board.new(1, 2)
+        board = Board.new(1)
         board_printer = described_class.new(board)
 
-        expected = '   |   '
+        expected = '   '
 
         expect(board_printer.print).to eq(expected)
       end
 
       it 'prints a 2 row game board' do
-        board = Board.new(2, 2)
+        board = Board.new(2)
         board_printer = described_class.new(board)
 
         expected = "   |   \n-------\n   |   "
@@ -23,7 +23,7 @@ describe BoardPrinter do
       end
 
       it 'prints a 3 row game board' do
-        board = Board.new(3, 3)
+        board = Board.new(3)
         board_printer = described_class.new(board)
 
         expected = "   |   |   \n-----------\n   |   |   \n-----------\n   |   |   "
@@ -34,7 +34,7 @@ describe BoardPrinter do
 
     context 'when a move has been made' do
       it 'prints X for player 1' do
-        board = Board.new(3, 3)
+        board = Board.new(3)
         board_printer = described_class.new(board)
         board.move(1, 0, 0)
 
@@ -44,7 +44,7 @@ describe BoardPrinter do
       end
 
       it 'prints O for player 2' do
-        board = Board.new(3, 3)
+        board = Board.new(3)
         board_printer = described_class.new(board)
         board.move(2, 0, 0)
 
@@ -56,7 +56,7 @@ describe BoardPrinter do
 
     context 'when each player has moved' do
       it 'prints X for player 1 and O for player 2' do
-        board = Board.new(3, 3)
+        board = Board.new(3)
         board_printer = described_class.new(board)
         board.move(1, 0, 0)
         board.move(2, 0, 1)

@@ -1,12 +1,11 @@
 # Represents the game board for tic tac toe
 # Board can be any size, by default will be 3x3
 class Board
-  attr_accessor :num_rows, :num_columns, :board
+  attr_accessor :size, :board
 
-  def initialize(num_rows = 3, num_columns = 3)
-    @num_rows = num_rows
-    @num_columns = num_columns
-    @board = build_board(num_rows, num_columns)
+  def initialize(size = 3)
+    @size = size
+    @board = build_board(size)
   end
 
   def move(player_number, row_number, column_number)
@@ -24,7 +23,7 @@ class Board
 
   private
 
-  def build_board(num_rows, num_columns)
-    Array.new(num_rows) { Array.new(num_columns) }
+  def build_board(size)
+    Array.new(size) { Array.new(size) }
   end
 end
