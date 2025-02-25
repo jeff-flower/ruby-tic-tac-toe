@@ -32,7 +32,31 @@ class WinChecker
   end
 
   def diagonal_has_winner?
+    return false if @board.size == 1
+
+    return true if left_to_right_diagonal_has_winner?
+    return true if right_to_left_diagonal_has_winner?
+
     false
+  end
+
+  def left_to_right_diagonal_has_winner?
+    # TODO: even more, smaller functions???
+    range = (0...@board.size)
+    left_to_right_diagonal_coordinates = range.zip(range)
+
+    diagonal_values = left_to_right_diagonal_coordinates.map { |(row, col)| @board.board[row][col] }
+
+    group_has_winner?(diagonal_values)
+  end
+
+  def right_to_left_diagonal_has_winner?
+    range = (0...@board.size)
+    right_to_left_diagonal_coordinates = range.zip(range.to_a.reverse)
+
+    diagonal_values = right_to_left_diagonal_coordinates.map { |(row, col)| @board.board[row][col] }
+
+    group_has_winner?(diagonal_values)
   end
 
   def group_by_columns
@@ -45,5 +69,4 @@ class WinChecker
 
     false
   end
-
 end
