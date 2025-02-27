@@ -1,7 +1,7 @@
 # Represents the game board for tic tac toe
 # Board can be any size, by default will be 3x3
 class Board
-  attr_accessor :size, :board
+  attr_reader :size, :board
 
   def initialize(size = 3)
     @size = size
