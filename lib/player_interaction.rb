@@ -11,10 +11,10 @@ class PlayerInteraction
 
   def get_player_move(player_number)
     @output.puts "Player #{player_number} move (row, column)"
-    # row, column = @input.gets.chomp.split(',')
+    row, column = @input.gets.chomp.split(',')
 
-    # @board.move(player_number, row, column)
+    @board.move(player_number, row.to_i - 1, column.to_i - 1)
 
-    # @output.puts "Player #{player_number} moved to #{row}, #{column}"
+    @output.puts "Player #{player_number} moved to #{row}, #{column}"
   end
 end
