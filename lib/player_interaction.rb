@@ -13,6 +13,8 @@ class PlayerInteraction
     @output.puts "Player #{player_number} move (row, column)"
     row, column = @input.gets.chomp.split(',')
 
+    # TODO: validate input
+
     @board.move(player_number, row.to_i - 1, column.to_i - 1)
 
     @output.puts "Player #{player_number} moved to #{row}, #{column}"

@@ -26,6 +26,4 @@ describe PlayerInteraction do
 
     expect(board.board[0][0]).to be 1
   end
-
-  # print game board somewhere?
 end
